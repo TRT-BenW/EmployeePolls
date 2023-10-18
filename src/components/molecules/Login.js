@@ -38,12 +38,8 @@ export default function Login() {
   return (
     <>
       <Grid justify="center">
-        <Grid.Col span={2}>
-        </Grid.Col>
-        <Grid.Col span={2}>
-          <img src="/pollImage.jpg" alt="Employee Polls"/>
-        </Grid.Col>
-        <Grid.Col span={2}>
+        <Grid.Col>Employee Polls
+          <img src="/pollImage.png" alt="Employee Polls"/>
         </Grid.Col>
       </Grid>
 
