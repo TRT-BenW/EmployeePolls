@@ -1,0 +1,169 @@
+/* app logo animation */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.Alien-logo {
+  margin-left: 20%;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Alien-logo {
+    animation: Alien-logo-float infinite 3s ease-in-out;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-float infinite 3s ease-in-out;
+  }
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+  color: rgb(112, 76, 182);
+}
+
+@keyframes App-logo-float {
+  0% {
+    transform: translateY(0);
+    stroke: #cf4de9;
+  }
+  25% {
+    transform: rotate(-3deg);
+    stroke: #f61818;
+  }
+  50% {
+    transform: rotate(1deg);
+    transform: translateY(10px);
+    stroke: #eaa40c;
+  }
+  75% {
+    transform: rotate(3deg);
+    stroke: #4a67f8;
+  }
+  100% {
+    transform: translateY(0px);
+    stroke: #cf4de9;
+  }
+}
+
+@keyframes Alien-logo-float {
+  0% {
+    transform: translateY(0px);
+    transform: translateX(0px);
+    stroke: #cf4de9;
+  }
+  25% {
+    transform: rotate(-3deg);
+    transform: translateX(40px);
+    stroke: #f61818;
+  }
+  50% {
+    transform: rotate(1deg);
+    transform: translateY(10px);
+    transform: translateX(200px);
+    stroke: #eaa40c;
+  }
+  75% {
+    transform: rotate(3deg);
+    transform: translateX(60px);
+    stroke: #4a67f8;
+  }
+  100% {
+    transform: translateY(0px);
+    transform: translateX(0px);
+    stroke: #cf4de9;
+  }
+}
+
+/*color shift text */
+
+:root {
+  --purple: rgb(123, 31, 162);
+  --violet: rgb(103, 58, 183);
+  --pink: rgb(244, 143, 177);
+  --red: rgb(238, 77, 77);
+  --orange: rgb(250, 166, 56);
+  --yellow: rgb(243, 219, 80);
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes scale {
+  from,
+  to {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+span > .magic {
+  display: inline-block;
+  position: relative;
+}
+
+.magic-text1 {
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--purple),
+    var(--violet),
+    var(--pink),
+    var(--purple)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+.magic-text2 {
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--red),
+    var(--orange),
+    var(--yellow),
+    var(--red)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
