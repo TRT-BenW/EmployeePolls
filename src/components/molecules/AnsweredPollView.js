@@ -1,6 +1,7 @@
 import { Container, Title, Space } from "@mantine/core";
 import { IconAdjustmentsHorizontal, IconAdjustmentsAlt } from "@tabler/icons";
 import VoteResult from "../atoms/VoteResult";
+import { Fragment } from 'react';  // Corrected import
 
 const AnsweredPollView = ({
   poll,
@@ -16,7 +17,7 @@ const AnsweredPollView = ({
       altVotes: optionTwoVotes,
       color: 'green',
       icon: <IconAdjustmentsHorizontal />,
-      isVoted: authUserVote.vote === 'optionOne',
+      isVoted: authUserVote?.vote === 'optionOne',
     },
     {
       text: poll?.optionTwo.text,
@@ -24,7 +25,7 @@ const AnsweredPollView = ({
       altVotes: optionOneVotes,
       color: 'blue',
       icon: <IconAdjustmentsAlt />,
-      isVoted: authUserVote.vote === 'optionTwo',
+      isVoted: authUserVote?.vote === 'optionTwo',
     },
   ];
 
@@ -35,7 +36,8 @@ const AnsweredPollView = ({
       </Title>
       <Space h="md" />
       {options.map(({ text, votes, altVotes, color, icon, isVoted }, index) => (
-        <>
+        <Fragment key={index}> 
+
           <VoteResult
             option={text}
             optionVotes={votes}
@@ -45,7 +47,7 @@ const AnsweredPollView = ({
             userVotedForOption={isVoted}
           />
           {index === 0 && <Space h="md" />}
-        </>
+        </Fragment>
       ))}
     </Container>
   );

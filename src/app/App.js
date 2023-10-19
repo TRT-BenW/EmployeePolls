@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { fetchPolls } from "../redux/reducers/pollReducer";
 import { fetchUsers } from "../redux/reducers/userReducer";
 import Navigation from "../components/atoms/Navigation";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useNavigate } from "react-router";  // Updated import
 import ProtectedRoute from "../components/atoms/ProtectedRoute";
 import Login from "../components/molecules/Login";
 import PollDetail from "../components/molecules/PollDetail";
@@ -20,6 +20,7 @@ import NotFound from "../components/atoms/NotFound";
 
 export default function App() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();  // Use the useNavigate hook
 
   useEffect(() => {
     dispatch(fetchPolls());
@@ -27,7 +28,9 @@ export default function App() {
   }, [dispatch]);
 
   const handleLogout = () => {
+    navigate('/');  // Always navigate to home page
     dispatch(logOutUser());
+    navigate(window.location.pathname);  // Refresh the current route
   };
 
   return (
